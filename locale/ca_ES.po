@@ -7,5 +7,5 @@ msgid "Incoterm"
 msgstr "Incoterm"
 
 msgctxt "field:sale.sale,incoterm_place:"
-msgid "Incoterm Name Place"
-msgstr "Nom del lloc incoterm"
+msgid "Incoterm Named Place"
+msgstr "Nom del lloc Incoterm"

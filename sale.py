@@ -15,7 +15,7 @@ class Sale:
             'readonly': Eval('state').in_(['processing', 'cancel', 'done']),
             },
         depends=['state'])
-    incoterm_place = fields.Char('Incoterm Name Place',
+    incoterm_place = fields.Char('Incoterm Named Place',
         states={
             'required': Bool(Eval('incoterm')),
             'invisible': ~Bool(Eval('incoterm')),
