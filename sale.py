@@ -7,9 +7,8 @@ from trytond.pyson import Bool, Eval
 __all__ = ['Sale']
 
 
-class Sale:
+class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
-    __metaclass__ = PoolMeta
     incoterm = fields.Many2One('incoterm', 'Incoterm',
         states={
             'readonly': Eval('state').in_(['processing', 'cancel', 'done']),
