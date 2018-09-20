@@ -23,7 +23,6 @@ class Sale:
             },
         depends=['state', 'incoterm'])
 
-    @fields.depends('party')
     def on_change_party(self):
         super(Sale, self).on_change_party()
 
