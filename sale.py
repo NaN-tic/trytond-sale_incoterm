@@ -16,7 +16,8 @@ class Sale(metaclass=PoolMeta):
         depends=['state'])
     incoterm_place = fields.Char('Incoterm Name Place',
         states={
-            'required': Bool(Eval('incoterm')),
+            'required': (Bool(Eval('incoterm'))
+                & ~Eval('state').in_(['draft', 'quotation', 'cancel'])),
             'invisible': ~Bool(Eval('incoterm')),
             'readonly': Eval('state').in_(['processing', 'cancel', 'done']),
             },
