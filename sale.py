@@ -11,15 +11,15 @@ class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
     incoterm = fields.Many2One('incoterm', 'Incoterm',
         states={
-            'readonly': Eval('state').in_(['processing', 'cancel', 'done']),
+            'readonly': Eval('state').in_(['processing', 'cancelled', 'done']),
             },
         depends=['state'])
     incoterm_place = fields.Char('Incoterm Name Place',
         states={
             'required': (Bool(Eval('incoterm'))
-                & ~Eval('state').in_(['draft', 'quotation', 'cancel'])),
+                & ~Eval('state').in_(['draft', 'quotation', 'cancelled'])),
             'invisible': ~Bool(Eval('incoterm')),
-            'readonly': Eval('state').in_(['processing', 'cancel', 'done']),
+            'readonly': Eval('state').in_(['processing', 'cancelled', 'done']),
             },
         depends=['state', 'incoterm'])
 
